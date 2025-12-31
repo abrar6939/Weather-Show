@@ -2,7 +2,7 @@
 FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
 
-# Copy pom.xml and download dependencies
+# Copy pom.xml and download dependencies (cached layer)
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
@@ -19,7 +19,7 @@ WORKDIR /app
 # Copy the built JAR from the builder stage
 COPY --from=builder /app/target/WeatherAPI-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port
+# Expose the port (Render assigns a random port via PORT env variable)
 EXPOSE 8080
 
 # Health check
