@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8080/weather';
+const API_BASE = `${window.location.origin}/weather`;
 
 // 1. Get Current Weather
 function getCurrentWeather() {
