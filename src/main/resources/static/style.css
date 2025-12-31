@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f0f;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #e0e0e0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 16px;
+    color: #888;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #00d4ff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 12px;
+    border: 1px solid #00d4ff;
+    background: transparent;
+    color: #00d4ff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: #00d4ff;
+    color: #0f0f0f;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.error {
+    color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border-left: 3px solid #ff4444;
+    display: none;
+    font-size: 13px;
+}
+
+.error.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.success {
+    color: #44ff44;
+    background-color: rgba(68, 255, 68, 0.1);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border-left: 3px solid #44ff44;
+    display: none;
+    font-size: 13px;
+}
+
+.success.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.result-container {
+    margin-top: 30px;
+}
+
+.result {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.result.show {
+    display: block;
+}
+
+.result-header {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    color: #fff;
+    padding: 20px 25px;
+}
+
+.result-header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.result-content {
+    padding: 40px;
+    background: #0f0f0f;
+}
+
+pre {
+    background: #0f0f0f;
+    padding: 25px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #00d4ff;
+    border: 1px solid #333;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 28px;
+    }
+}
+

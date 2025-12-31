@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ Weather API</h1>
+            <p>Dark theme weather information system</p>
+        </div>
+        
+        <div class="grid">
+            <!-- 1. Current Weather -->
+            <div class="card">
+                <div class="card-title">☀️ Current Weather</div>
+                <div class="input-group">
+                    <label>City Name</label>
+                    <input type="text" id="weather_city" placeholder="London" value="London">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="getCurrentWeather()">Get Weather</button>
+                </div>
+            </div>
+
+            <!-- 2. Weather Forecast -->
+            <div class="card">
+                <div class="card-title">📅 Forecast</div>
+                <div class="input-group">
+                    <label>City Name</label>
+                    <input type="text" id="forecast_city" placeholder="London" value="London">
+                </div>
+                <div class="input-group">
+                    <label>Days</label>
+                    <input type="number" id="forecast_days" min="1" max="10" value="3">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="getForecast()">Get Forecast</button>
+                </div>
+            </div>
+
+            <!-- 3. Weather Alerts -->
+            <div class="card">
+                <div class="card-title">⚠️ Weather Alert</div>
+                <div class="input-group">
+                    <label>City Name</label>
+                    <input type="text" id="alert_city" placeholder="London" value="London">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="getWeatherAlert()">Get Alert</button>
+                </div>
+            </div>
+
+            <!-- 4. Coordinates Weather -->
+            <div class="card">
+                <div class="card-title">📍 By Coordinates</div>
+                <div class="input-group">
+                    <label>Latitude</label>
+                    <input type="number" id="coord_lat" placeholder="51.5074" value="51.5074" step="0.0001">
+                </div>
+                <div class="input-group">
+                    <label>Longitude</label>
+                    <input type="number" id="coord_lon" placeholder="-0.1278" value="-0.1278" step="0.0001">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="getWeatherByCoordinates()">Get Weather</button>
+                </div>
+            </div>
+
+            <!-- 5. Extended Forecast -->
+            <div class="card">
+                <div class="card-title">📊 Extended Forecast</div>
+                <div class="input-group">
+                    <label>City Name</label>
+                    <input type="text" id="extended_city" placeholder="London" value="London">
+                </div>
+                <div class="input-group">
+                    <label>Days (optional)</label>
+                    <input type="number" id="extended_days" min="1" max="10" placeholder="5">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="getExtendedForecast()">Get Extended</button>
+                </div>
+            </div>
+
+            <!-- 6. Compare Cities -->
+            <div class="card">
+                <div class="card-title">🏙️ Compare Cities</div>
+                <div class="input-group">
+                    <label>Cities (comma separated)</label>
+                    <input type="text" id="compare_cities" placeholder="London, Paris, Tokyo" value="London, Paris">
+                </div>
+                <div class="button-group">
+                    <button class="btn" onclick="compareMultipleCities()">Compare</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="result-container">
+            <div class="error" id="error"></div>
+            <div class="success" id="success"></div>
+            
+            <div class="result" id="result">
+                <div class="result-header">
+                    <h2 id="resultTitle"></h2>
+                </div>
+                <div class="result-content">
+                    <pre id="resultData"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
